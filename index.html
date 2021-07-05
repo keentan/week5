@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Javascript Exercise</title>
+</head>
+<body>
+	<h1>My Javascript Exercise</h1>
+
+	<input type="text" name="username" id="username">
+
+	<button onclick="sayHello()">Click me!</button>
+	
+	<hr>
+	<h2>Rock Paper Scissors</h2>
+	<button onclick="buttonPressed(0)">Rock</button>
+	<button onclick="buttonPressed(1)">Paper</button>
+	<button onclick="buttonPressed(2)">Scissors</button>
+
+	<script type="text/javascript"> // to be put right before the closing tag of body.
+		var userScore = 0;
+		var compScore = 0;
+
+		function sayHello() {
+			var name = document.getElementById("username").value;
+			alert('Hello '+name); // something like console.log but something we can see
+		}
+
+		function buttonPressed(userChoice) {
+			var computerChoice = Math.floor(Math.random()*2);
+			if (userChoice == 0) {
+				if (computerChoice == 0) {
+					alert("Computer selects Rock. It is a draw. The score is "+userScore+":"+compScore);
+				}
+				else if (computerChoice == 1) {
+					compScore++;
+					alert ("Computer selects Paper. You lose. The score is "+userScore+":"+compScore);
+				}
+				else {
+					userScore++;
+					alert ("Computer selects Scissors. You win. The score is "+userScore+":"+compScore);
+				}
+			}
+			else if (userChoice == 1) {
+				if (computerChoice == 0) {
+					userScore++;
+					alert("Computer selects Rock. You win. The score is "+userScore+":"+compScore);
+				}
+				else if (computerChoice == 1) {
+					alert ("Computer selects Paper. It is a draw. The score is "+userScore+":"+compScore)
+				}
+				else {
+					compScore++;
+					alert ("Computer selects Scissors. You lose. The score is "+userScore+":"+compScore)
+				}
+			}
+			else {
+				if (computerChoice == 0) {
+					compScore++;
+					alert("Computer selects Rock. You lose. The score is "+userScore+":"+compScore);
+				}
+				else if (computerChoice == 1) {
+					userScore++;
+					alert ("Computer selects Paper. You win. The score is "+userScore+":"+compScore)
+				}
+				else {
+					alert ("Computer selects Scissors. It is a draw. The score is "+userScore+":"+compScore)
+				}
+			}
+		}
+
+		
+	</script>
+</body>
+</html>
