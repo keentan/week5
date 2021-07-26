@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>The Guess Game</title>
+</head>
+<body>
+	<h1>Guess the number!</h1>
+	<h2>Let's see if you can get the correct number in 8 guesses.</h2>
+	<p>Enter the number :</p>
+	<input type="text" name="userNumber" id="userNumber">
+	<button onclick="guessGame()">Click me!</button>
+	<p id="message"></p>
+
+	<script type="text/javascript">
+		var count = 1;
+		
+
+		if (count <= 1)
+            {
+            	var computerNumber = Math.floor(Math.random()*100);
+            	count++;
+            }
+
+        var guess = 1;
+
+		function guessGame(userNumber) {
+		var userNumber = document.getElementById("userNumber").value;
+            if (guess<=7)
+            {
+            if (userNumber < computerNumber) {
+            	document.getElementById("message").innerHTML = "You are guessing too low!("+userNumber+")";
+				guess++;
+			}
+			else if (userNumber > computerNumber) {
+				document.getElementById("message").innerHTML = "You are guessing too high!("+userNumber+")";
+				 guess++;
+			}
+			else {
+				document.getElementById("message").innerHTML = "Congratulations! You have guessed the correct number!";
+			}
+		    }
+		    else
+		    {
+		    	alert("Oh No! You are wrong in " + guess + " Guess!");
+		    }
+		}
+
+	</script>
+</body>
+</html>
