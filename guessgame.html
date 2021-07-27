@@ -6,11 +6,12 @@
 </head>
 <body>
 	<h1>Guess the number!</h1>
-	<h2>Let's see if you can get the correct number in 8 guesses.</h2>
+	<h2>Let's see if you can get the correct number in 5 guesses.</h2>
 	<p>Enter the number :</p>
 	<input type="text" name="userNumber" id="userNumber">
-	<button onclick="guessGame()">Click me!</button>
+	<button onclick="guessGame()">Guess!</button>
 	<p id="message"></p>
+	<button onclick="restartGame()">Restart the Game</button>
 
 	<script type="text/javascript">
 		var count = 1;
@@ -26,7 +27,7 @@
 
 		function guessGame(userNumber) {
 		var userNumber = document.getElementById("userNumber").value;
-            if (guess<=7)
+            if (guess <= 4)
             {
             if (userNumber < computerNumber) {
             	document.getElementById("message").innerHTML = "You are guessing too low!("+userNumber+")";
@@ -42,8 +43,15 @@
 		    }
 		    else
 		    {
-		    	alert("Oh No! You are wrong in " + guess + " Guess!");
+		    	document.getElementById("message").innerHTML = "Game Over! You are wrong in " + guess + " Guess!";
 		    }
+		}
+
+		function restartGame() {
+			guess = 1;
+			count = 1;
+			document.getElementById("userNumber").value="";
+			document.getElementById("message").innerHTML="";
 		}
 
 	</script>
