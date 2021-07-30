@@ -14,7 +14,8 @@
 	<button onclick="restartGame()">Restart the Game</button>
 
 	<script type="text/javascript">
-		var count = 1;
+		 var count = 1;
+		 var chance = 5;
 		
 
 		if (count <= 1)
@@ -27,14 +28,17 @@
 
 		function guessGame(userNumber) {
 		var userNumber = document.getElementById("userNumber").value;
+		   
             if (guess <= 5)
             {
             if (userNumber < computerNumber) {
-            	document.getElementById("message").innerHTML = "You are guessing too low!("+userNumber+")";
+            	chance--;
+            	document.getElementById("message").innerHTML = "You are guessing too low!("+userNumber+") and your guess chance left " + chance+ " times";
 				guess++;
 			}
 			else if (userNumber > computerNumber) {
-				document.getElementById("message").innerHTML = "You are guessing too high!("+userNumber+")";
+				chance--;
+				document.getElementById("message").innerHTML = "You are guessing too high!("+userNumber+") and your guess chance left " + chance + " times";
 				 guess++;
 			}
 			else {
@@ -42,8 +46,8 @@
 			}
 		    }
 		    else
-		    {
-		    	document.getElementById("message").innerHTML = "Game Over! You are wrong in " + guess + " Guess!";
+		    {   var final = guess - 1
+		    	document.getElementById("message").innerHTML = "Game Over! You are wrong in " + final  + " Guess!";
 		    }
 		}
 
